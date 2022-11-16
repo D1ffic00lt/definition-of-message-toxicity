@@ -28,16 +28,17 @@ File or folder name  | Contents of a file or folder
 
 # An example of using the program
 ```Python
-import pickle                                                                        # Loading library for reading models
-from ModelLibrary.predict import GetToxicity                                         # Loading the training program
+import pickle
+from ModelLibrary.predict import get_toxicity
 
-with open("ModelLibrary/models/EnglishModel.bf", "rb") as EnglishModel,              # Loading Models
-        open("ModelLibrary/models/RussianModel.bf", "rb") as RussianModel:           # Loading Models
-    models_ = [pickle.load(RussianModel), pickle.load(EnglishModel)]                 # Loading Models
+with open("ModelLibrary/models/EnglishModel.bf", "rb") as EnglishModel,
+        open("ModelLibrary/models/RussianModel.bf", "rb") as RussianModel:
+    models_ = [pickle.load(RussianModel), pickle.load(EnglishModel)]
 
-with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer,    # Loading vectorizers
-        open("ModelLibrary/models/EnglishVectorizer.bf", "rb") as EnglishVectorizer: # Loading vectorizers
-    vectorizers_ = [pickle.load(RussianVectorizer), pickle.load(EnglishVectorizer)]  # Loading vectorizers
+with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer,
+        open("ModelLibrary/models/EnglishVectorizer.bf", "rb") as EnglishVectorizer:
+    vectorizers_ = [pickle.load(RussianVectorizer), pickle.load(EnglishVectorizer)]
 
-print(GetToxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))     # Toxicity prediction
+print(get_toxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))
+
 ```
