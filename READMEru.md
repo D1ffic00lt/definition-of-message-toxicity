@@ -28,16 +28,17 @@
 
 # Пример использования программы
 ```Python
-import pickle                                                                        # Загрузка библиотеки для чтения моделей
-from ModelLibrary.predict import GetToxicity                                         # Загрузка тренировочной программы
+import pickle
+from ModelLibrary.predict import get_toxicity
 
-with open("ModelLibrary/models/EnglishModel.bf", "rb") as EnglishModel,              # Загрузка моделей
-        open("ModelLibrary/models/RussianModel.bf", "rb") as RussianModel:           # Загрузка моделей
-    models_ = [pickle.load(RussianModel), pickle.load(EnglishModel)]                 # Загрузка моделей
+with open("ModelLibrary/models/EnglishModel.bf", "rb") as EnglishModel,
+        open("ModelLibrary/models/RussianModel.bf", "rb") as RussianModel:
+    models_ = [pickle.load(RussianModel), pickle.load(EnglishModel)]
 
-with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer,    # Загрузка векторизаторов
-        open("ModelLibrary/models/EnglishVectorizer.bf", "rb") as EnglishVectorizer: # Загрузка векторизаторов
-    vectorizers_ = [pickle.load(RussianVectorizer), pickle.load(EnglishVectorizer)]  # Загрузка векторизаторов
+with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer,
+        open("ModelLibrary/models/EnglishVectorizer.bf", "rb") as EnglishVectorizer:
+    vectorizers_ = [pickle.load(RussianVectorizer), pickle.load(EnglishVectorizer)]
 
-print(GetToxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))     # Прогноз токсичности
+print(get_toxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))
+
 ```

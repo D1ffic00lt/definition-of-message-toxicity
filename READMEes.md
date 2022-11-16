@@ -28,16 +28,17 @@ Nombre de archivo o carpeta | Contenido de un archivo o carpeta
 
 # Un ejemplo de uso del programa.
 ```Python
-import pickle                                                                        # Cargando biblioteca para leer modelos
-from ModelLibrary.predict import GetToxicity                                         # Cargando el programa de entrenamiento
+import pickle
+from ModelLibrary.predict import get_toxicity
 
-with open("ModelLibrary/models/EnglishModel.bf", "rb") as EnglishModel,              # Cargando modelos
-        open("ModelLibrary/models/RussianModel.bf", "rb") as RussianModel:           # Cargando modelos
-    models_ = [pickle.load(RussianModel), pickle.load(EnglishModel)]                 # Cargando modelos
+with open("ModelLibrary/models/EnglishModel.bf", "rb") as EnglishModel,
+        open("ModelLibrary/models/RussianModel.bf", "rb") as RussianModel:
+    models_ = [pickle.load(RussianModel), pickle.load(EnglishModel)]
 
-with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer,    # Cargando vectorizadores
-        open("ModelLibrary/models/EnglishVectorizer.bf", "rb") as EnglishVectorizer: # Cargando vectorizadores
-    vectorizers_ = [pickle.load(RussianVectorizer), pickle.load(EnglishVectorizer)]  # Cargando vectorizadores
+with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer,
+        open("ModelLibrary/models/EnglishVectorizer.bf", "rb") as EnglishVectorizer:
+    vectorizers_ = [pickle.load(RussianVectorizer), pickle.load(EnglishVectorizer)]
 
-print(GetToxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))     # Predicción de toxicidad
+print(get_toxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))
+
 ```
