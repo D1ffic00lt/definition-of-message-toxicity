@@ -26,7 +26,7 @@ File or folder name  | Contents of a file or folder
 [ModelLibrary/predict.py](ModelLibrary/predict.py) | Toxicity predictor code
 [requirements.txt](requirements.txt) | Libraries file 
 
-# An example of using the program
+# The actual use of the program
 ```Python
 import pickle
 from ModelLibrary.predict import get_toxicity
@@ -41,4 +41,37 @@ with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer
 
 print(get_toxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))
 
+```
+
+# An easier way to use the program
+I wrote and published the code for the PyPi module
+## Installation
+
+`pip install toxicityclassifier`
+
+[PyPi](https://pypi.org/project/toxicityclassifier/) |
+[Source](https://github.com/D1ffic00lt/toxicity-classification-module) |
+[releases](https://github.com/D1ffic00lt/toxicity-classification-module/releases)
+## Usage example
+```python
+from toxicityclassifier import *
+
+classifier = ToxicityClassificator()
+
+print(classifier.predict(text))          # (0 or 1, probability)
+print(classifier.get_probability(text))  # probability
+print(classifier.classify(text))         # 0 or 1
+```
+
+## Weights
+Weight for classification (if probability >= weight => 1 else 0)
+```python
+classifier.weight = 0.5
+```
+\
+Weight for language detection (English or Russian)
+
+if the percentage of the Russian language >= language_weight, then the Russian model is used, otherwise the English one
+```python
+classifier.language_weight = 0.5
 ```

@@ -39,6 +39,39 @@ with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer
         open("ModelLibrary/models/EnglishVectorizer.bf", "rb") as EnglishVectorizer:
     vectorizers_ = [pickle.load(RussianVectorizer), pickle.load(EnglishVectorizer)]
 
-print(get_toxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))
+print(get_toxicity("ПРИВЕТ КАК ДЕЛА?", models=models_, vectorizers=vectorizers_))
 
+```
+
+# Более простой способ использования программы
+Мною был написан и опубликован код для модуля PyPi
+## Установка
+
+`pip install toxicityclassifier`
+
+[PyPi](https://pypi.org/project/toxicityclassifier/) |
+[Source](https://github.com/D1ffic00lt/toxicity-classification-module) |
+[releases](https://github.com/D1ffic00lt/toxicity-classification-module/releases)
+## Пример использования
+```python
+from toxicityclassifier import *
+
+classifier = ToxicityClassificator()
+
+print(classifier.predict(text))          # (0 или 1, вероятность)
+print(classifier.get_probability(text))  # вероятность
+print(classifier.classify(text))         # 0 или 1
+```
+
+## Веса
+Вес для классификации (если вероятность >= weight => 1, иначе 0)
+```python
+classifier.weight = 0.5
+```
+\
+Вес для определения языка (английский или русский)
+
+если процент русского языка >= language_weight, то используется русская модель, иначе английская
+```python
+classifier.language_weight = 0.5
 ```
