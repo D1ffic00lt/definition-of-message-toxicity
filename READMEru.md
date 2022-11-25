@@ -51,7 +51,7 @@ print(get_toxicity("ПРИВЕТ КАК ДЕЛА?", models=models_, vectorizers=
 
 [PyPi](https://pypi.org/project/toxicityclassifier/) |
 [Source](https://github.com/D1ffic00lt/toxicity-classification-module) |
-[releases](https://github.com/D1ffic00lt/toxicity-classification-module/releases)
+[Releases](https://github.com/D1ffic00lt/toxicity-classification-module/releases)
 ## Пример использования
 ```python
 from toxicityclassifier import *
