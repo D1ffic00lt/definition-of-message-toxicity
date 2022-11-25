@@ -51,7 +51,7 @@ Escribí y publiqué el código del módulo Py Pi
 
 [PyPi](https://pypi.org/project/toxicityclassifier/) |
 [Source](https://github.com/D1ffic00lt/toxicity-classification-module) |
-[releases](https://github.com/D1ffic00lt/toxicity-classification-module/releases)
+[Releases](https://github.com/D1ffic00lt/toxicity-classification-module/releases)
 ## Ejemplo de uso
 ```python
 from toxicityclassifier import *
