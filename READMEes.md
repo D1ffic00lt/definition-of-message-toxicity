@@ -42,3 +42,36 @@ with open("ModelLibrary/models/RussianVectorizer.bf", "rb") as RussianVectorizer
 print(get_toxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=vectorizers_))
 
 ```
+
+# Una forma más fácil de usar el programa
+Escribí y publiqué el código del módulo Py Pi
+## Instalación
+
+`pip install toxicityclassifier`
+
+[PyPi](https://pypi.org/project/toxicityclassifier/) |
+[Source](https://github.com/D1ffic00lt/toxicity-classification-module) |
+[releases](https://github.com/D1ffic00lt/toxicity-classification-module/releases)
+## Ejemplo de uso
+```python
+from toxicityclassifier import *
+
+classifier = ToxicityClassificator()
+
+print(classifier.predict(text))          # (0 o 1, probabilidad)
+print(classifier.get_probability(text))  # probabilidad
+print(classifier.classify(text))         # 0 o 1
+```
+
+## De peso
+Peso para clasificación (si probabilidad >= peso => 1, de lo contrario 0)
+```python
+classifier.weight = 0.5
+```
+\
+Peso para determinar el idioma (inglés o ruso)
+
+Si el porcentaje del idioma ruso >= language_weight, entonces se usa el modelo ruso, de lo contrario, el inglés
+```python
+classifier.language_weight = 0.5
+```
