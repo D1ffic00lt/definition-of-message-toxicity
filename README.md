@@ -47,7 +47,9 @@ print(get_toxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=
 I wrote and published the code for the PyPi module
 ## Installation
 
-`pip install toxicityclassifier`
+```
+pip install toxicityclassifier
+```
 
 [PyPi](https://pypi.org/project/toxicityclassifier/) |
 [Source](https://github.com/D1ffic00lt/toxicity-classification-module) |
