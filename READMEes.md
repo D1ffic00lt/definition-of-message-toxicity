@@ -44,7 +44,7 @@ print(get_toxicity("ПРИВЕТ КАК ДЕЛА&", models=models_, vectorizers=
 ```
 
 # Una forma más fácil de usar el programa
-Escribí y publiqué el código del módulo Py Pi
+Escribí y publiqué el código del módulo PyPi
 ## Instalación
 
 ```
